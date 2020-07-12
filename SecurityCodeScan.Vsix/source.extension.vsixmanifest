@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="EA274E2A-E5EB-433B-9847-4CD27BE874EF" Version="$version$" Language="en-US" Publisher="JaroslavLobacevski"/>
+        <DisplayName>Security Code Scan</DisplayName>
+        <Description xml:space="preserve">Security static code analyzer for .NET</Description>
+        <MoreInfo>https://security-code-scan.github.io</MoreInfo>
+        <License>LICENSE-LGPL.txt</License>
+        <GettingStartedGuide>https://security-code-scan.github.io/#Installation</GettingStartedGuide>
+        <ReleaseNotes>https://security-code-scan.github.io/#ReleaseNotes</ReleaseNotes>
+        <Icon>icon.png</Icon>
+        <PreviewImage>preview.png</PreviewImage>
+        <Tags>SecurityCodeScan;Security.Code.Scan;Security Code Scan;Static Code Analysis;Security;Vulnerability;Analyzer;Analyzers;.NET;Roslyn;OWASP;Injection;XSS;CSRF;XXE;SQLi</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Pro" />
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Community" />
+        <InstallationTarget Version="[14.0,17.0)" Id="Microsoft.VisualStudio.Enterprise" />
+    </Installation>
+    <Dependencies>
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    </Dependencies>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.MefComponent" d:Source="Project" d:ProjectName="SecurityCodeScan" Path="|SecurityCodeScan|"/>
+        <Asset Type="Microsoft.VisualStudio.Analyzer" d:Source="Project" d:ProjectName="SecurityCodeScan" Path="|SecurityCodeScan|"/>
+    </Assets>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[14.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+</PackageManifest>

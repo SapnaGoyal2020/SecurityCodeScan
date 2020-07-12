@@ -1,0 +1,14 @@
+<Project>
+  <Choose>
+    <When Condition=" '$(APPVEYOR_REPO_TAG_NAME)' != '' ">
+      <PropertyGroup>
+        <AssemblyVersionNumber>$(APPVEYOR_REPO_TAG_NAME)</AssemblyVersionNumber>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <AssemblyVersionNumber>0.0.0.0</AssemblyVersionNumber>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+</Project>

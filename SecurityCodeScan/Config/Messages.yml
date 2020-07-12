@@ -1,0 +1,201 @@
+﻿#
+# This file contains the localization of the diagnostics
+#
+# File format:
+# <<<
+# [Locale ID that is used to load the diagnostic reference (LocaleUtil.GetDescriptor())]:
+#   title: [Title of the diagnostic]
+#   title_assignment: [Title used by taint analyzer in case of assignment]
+#   description: [Description of the diagnostic]
+# <<<
+# Title and description are the standard ones.
+# An analyzer may use additional keys to provide a different message in a specific case (LocaleUtil.GetDescriptor(id, titleId: "custom_key"))
+
+SCS0000:
+  title: "Compilation analysis completed."
+  description: This a fake warning you may enable in configuration just to have a proof in a log that analyzer did run.
+
+# Injections
+
+SCS0001:
+  title: "Command injection possible in {1} argument passed to '{0}'"
+  title_assignment: Possible command injection
+  description: The dynamic value passed to the command execution should be validated.
+
+SCS0002:
+  title: "LINQ API: SQL injection possible in {1} argument passed to '{0}'"
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0014:
+  title: "Possible SQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible SQL injection
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0020:
+  title: "OleDb API: SQL injection possible in {1} argument passed to '{0}'"
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0025:
+  title: "Odbc API: SQL injection possible in {1} argument passed to '{0}'"
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0026:
+  title: "MsSQL Data Provider: SQL injection possible in {1} argument passed to '{0}'"
+  title_assignment: Possible SQL injection
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0035:
+  title: "Possible SQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible SQL injection
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0036:
+  title: "Possible SQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible SQL injection
+  description: The dynamic value passed in the SQL query should be validated.
+
+SCS0037:
+  title: "Possible nHibernate SQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible nHibernate SQL injection
+  description: The dynamic value passed in the nHibernate SQL query should be bound as a named parameter.
+
+SCS0038:
+  title: "Possible CQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible CQL injection
+  description: The dynamic value passed in the CQL query should be bound as a named parameter.
+
+SCS0039:
+  title: "Possible NPGSQL injection in {1} argument passed to '{0}'"
+  title_assignment: Possible NPGSQL injection
+  description: The dynamic value passed in the NPGSQL query should be bound as a named parameter.
+
+SCS0027:
+  title: "Open redirect: possibly unvalidated input in {1} argument passed to '{0}'"
+  title_assignment: Possible open redirect
+  description: The dynamic value passed to the redirect should be validated
+
+SCS0003:
+  title: "XPath injection possible in {1} argument passed to '{0}'"
+  description: The dynamic value passed to the XPath query should be validated
+
+SCS0028:
+  title: "Possibly unsafe deserialization"
+  title_typenamehandling_analyzer: "TypeNameHandling is set to other value than 'None' that may lead to deserialization vulnerability"
+  title_javascriptserializer_analyzer: "Type information is used, it may lead to deserialization vulnerability"
+  title_assignment: "Possibly unsafe deserialization setting enabled"
+  description: Deserialization from untrusted source is unsafe.
+
+SCS0031:
+  title: "Possible LDAP injection in {1} argument passed to '{0}'"
+  title_assignment: Possible LDAP injection
+  description: The dynamic value passed in the LDAP query should be validated.
+
+# Various
+
+SCS0004:
+  title: Certificate Validation has been disabled
+  description: Certificate Validation has been disabled. The communication could be intercepted.
+
+SCS0007:
+  title: XML parsing vulnerable to XXE
+  description: The XML parser is configured incorrectly. The operation could be vulnerable to XML eXternal Entity (XXE) processing.
+
+SCS0008:
+  title: The cookie is missing security flag Secure
+  description: It is recommended to specify the Secure flag to new cookie.
+
+SCS0009:
+  title: The cookie is missing security flag HttpOnly
+  description: It is recommended to specify the HttpOnly flag to new cookie.
+
+# Crypto
+
+SCS0005:
+  title: Weak random generator
+  description: The random numbers generated could be predicted.
+
+SCS0006:
+  title: Weak hashing function
+  description: "{0} is no longer considered a strong hashing algorithm."
+  title2: Possibly weak hashing function
+  description_unknown: "Unable to determine hashing algorithm statically. Review if it is strong enough (SHA256 for example)."
+
+SCS0010:
+  title: Weak cipher algorithm
+  description: "{0} is not considered a strong cipher for modern applications. Currently, NIST recommends the usage of AES block ciphers instead of {0}."
+
+SCS0011:
+  title: CBC mode is weak
+  description: This specific mode of CBC with PKCS5Padding is susceptible to padding oracle attacks. An adversary could potentially decrypt the message if the system exposed the difference between plaintext with invalid padding or valid padding.
+
+SCS0012:
+  title: ECB mode is weak
+  description: "ECB mode will produce the same result for identical blocks (i.e.: 16 bytes for AES). An attacker could be able to guess the encrypted message. The use of AES in CBC mode with a HMAC is recommended guaranteeing integrity and confidentiality."
+
+SCS0013:
+  title: Weak cipher mode
+  description: The ciphertext produced is susceptible to alteration by an adversary. This mean that the cipher provides no way to detect that the data has been tampered with. If the ciphertext can be controlled by an attacker, it could be altered without detection. The use of AES in CBC mode with a HMAC is recommended guaranteeing integrity and confidentiality.
+
+SCS0016:
+  title: Controller method is vulnerable to CSRF
+  description: The annotation [ValidateAntiForgeryToken] is missing. It can be ignored/suppressed if .NET Core AutoValidateAntiforgeryToken is set up globally.
+
+SCS0017:
+  title: Request validation is disabled
+  title_base: Request validation disabled in base class
+  description: Request validation is disabled. Request validation allows the filtering of some XSS patterns submitted to the application.
+
+SCS0018:
+  title: "Path traversal: injection possible in {1} argument passed to '{0}'"
+  description: The file path passed to this API is susceptible to Path traversal attacks. With a malicious relative path, an attacker could reach a secret file.
+
+SCS0019:
+  title: OutputCache annotation is disabling authorization checks
+  description: Having the annotation [OutputCache] will disable the annotation [Authorize] for the requests following the first one.
+
+# Configuration issues
+
+SCS0021:
+  title: "Request validation has been disabled in {0}({1}): {2}"
+  description: Request validation, which provides additional protection against Cross-Site Scripting (XSS), has been disabled.
+
+SCS0030:
+  title: "Request validation is enabled only for pages, not for all HTTP requests. {0}({1}): {2}"
+  description: The RequestValidationMode property specifies which ASP.NET approach to validation will be used.
+
+SCS0022:
+  title: "Event validation is disabled in {0}({1}): {2}"
+  description: Event validation is disabled. The integrity of client-side control will not be validated on postback.
+
+SCS0023:
+  title: "View state is not encrypted in {0}({1}): {2}"
+  description: View state is not encrypted. Controls may leak sensitive data that could be read client-side.
+  
+SCS0024:
+  title: "View state mac is disabled in {0}({1}): {2}"
+  description: View state mac is disabled. The view state could be altered by an attacker. (This feature cannot be disabled in the recent version of ASP.net)
+
+# XSS
+SCS0029:
+  title: Potential XSS vulnerability
+  title_assignment: Potential XSS vulnerability
+  description: The endpoint returns a variable from the client input that has not been encoded.
+
+# Password Validator
+
+SCS0015:
+  title: "Hardcoded password in {1} argument passed to '{0}'"
+  title_assignment: Hardcoded password
+  description: The password configuration to this API appears to be hardcoded. Consider moving the password to externalized configuration to avoid leakage of secret information.
+
+SCS0032:
+  title: "The RequiredLength property of PasswordValidator should be set to at least {0}"
+  description: "The minimal length of a passwords is too short."
+
+SCS0033:
+  title: "Less than {0} properties set in PasswordValidator declaration"
+  description: Password requirements are weak. PasswordValidator should have more properties set (RequiredLength, RequireDigit, RequireLowercase, RequireUppercase and/or RequireNonLetterOrDigit).
+
+SCS0034:
+  title: "The {0} property must be set"
+  description: This property must be set to increase password requirements strength.
